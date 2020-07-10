@@ -23,4 +23,4 @@ For other technologies please pick the one you like unless you can explain the c
 
 1. Signin (signup) to the CodeSandbox platform and fork this project
 2. Complete the project based on the requirements
-3. Once it's complete please send the link to your fork to [n.klaasse@cvmaker.nl](mailto:n.klaasse@cvmaker.nl)
+3. Once it's complete please send the link to your fork
