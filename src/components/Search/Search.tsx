@@ -1,22 +1,25 @@
 import React from 'react';
 import axios from 'axios';
+import { useDispatch } from "react-redux";
+import { getData } from '../../actions/index';
 
 interface Props {
+    
 }
 
-const Search : React.FC<Props> = ({ }) => {
+const Search : React.FC<Props> = () => {
+    const dispatch = useDispatch();
     let input: any;
 
     const getInputValue = (value: string):void => {
-        console.log(value)
-        let url = `http://api.tvmaze.com/singlesearch/shows?q=${value}`
+        let url = `http://api.tvmaze.com/search/shows?q=${value}`
         passAPI(url);
     }
 
     const passAPI = (getUrl: string) => {
         axios(getUrl)
             .then(response => {
-                console.log(response)
+                dispatch(getData(response))
             })
             
     }
