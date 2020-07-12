@@ -4,10 +4,10 @@ import { useDispatch } from "react-redux";
 import { getData } from '../../actions/index';
 
 interface Props {
-    
+
 }
 
-const Search : React.FC<Props> = () => {
+const SearchInput : React.FC<Props> = () => {
     const dispatch = useDispatch();
     let input: any;
 
@@ -21,7 +21,6 @@ const Search : React.FC<Props> = () => {
             .then(response => {
                 dispatch(getData(response))
             })
-            
     }
 
     return (
@@ -44,4 +43,4 @@ const Search : React.FC<Props> = () => {
     )
 }
 
-export default Search;
+export default SearchInput;

@@ -1,18 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ReactMarkdown from "react-markdown";
+import {
+    BrowserRouter as Router,
+    Link
+  } from "react-router-dom";
 
 interface StateToProps {
     info: any;
 }
 
-
-
 const Result: React.FC<StateToProps> = ({ info }) => {
     return (
         <div>
             {info.map((show: any) => {
-                console.log(show.show)
                 return (
                     <div key={show.show.id}>
                         <ReactMarkdown source={show.show.name}/>
@@ -26,7 +27,15 @@ const Result: React.FC<StateToProps> = ({ info }) => {
                                 </div>
                             )
                         })}
-                        <a href={`http://api.tvmaze.com/lookup/shows?thetvdb=${show.show.externals.thetvdb}`}>Open link</a>
+
+                        <Router>
+                            <ul>
+                                <li>
+                                    <Link to="/">See detais..</Link>
+                                </li>
+                            </ul>
+                        </Router>
+                        
                     </div>
                 )
             })}
