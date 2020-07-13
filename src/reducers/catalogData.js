@@ -2,8 +2,7 @@ import { types } from '../actions/index';
 
 const initialState = {
     catalogInfo: [],
-    toggle: false,
-    showDetail: null
+    castList: []
 }
 
 export const catalogData = (state = initialState, action) => {
@@ -18,11 +17,17 @@ export const catalogData = (state = initialState, action) => {
         case types.GET_CAST: {
             return { 
                 ...state,
-                castList: action.castData,
-                showDetail: true
+                castList: action.castingData
             }
         }
-        
+
+        case types.EMPTY_DETAIL: {
+            return {
+                ...state,
+                castList: []
+            }
+        }
+
         default: 
             return state;
     }

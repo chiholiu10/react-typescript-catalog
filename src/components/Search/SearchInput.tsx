@@ -19,6 +19,9 @@ const SearchInput : React.FC<Props> = () => {
             .then(response => {
                 dispatch(getData(response))
             })
+            .catch(error => {
+                console.log(error)
+            })
     }
 
     return (
