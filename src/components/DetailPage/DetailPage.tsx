@@ -2,19 +2,24 @@ import React from 'react';
 import { connect } from 'react-redux';
 import history from "../../history";
 import ReactMarkdown from "react-markdown";
+import { emptyDetail } from '../../actions/index';
+import { useDispatch } from "react-redux";
 
 interface StateToProps {
     cast: any;
 }
 
 const Result: React.FC<StateToProps> = ({ cast }) => {
+    console.log(cast)
+    const dispatch = useDispatch();
+
     function handleClick() {
+        dispatch(emptyDetail())
         history.goBack();
     }
     
     return (
         <div>
-            Cast
             <div>
                 {cast.map((actor: any, index: number) => {
                     return (
@@ -30,12 +35,8 @@ const Result: React.FC<StateToProps> = ({ cast }) => {
 }
 
 const mapStateToProps = (state: any) => {
-    console.log(state.catalogData.showDetail)
     return {
-        cast: state.catalogData.castList || [],
-        summary: state.catalogData.catalogInfo.data || [],
-        pageSecured: state.catalogData.showDetail 
-
+        cast: state.catalogData.castList || []
     }
 }
 
