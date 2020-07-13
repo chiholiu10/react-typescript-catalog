@@ -16,21 +16,13 @@ export const catalogData = (state = initialState, action) => {
         }
 
         case types.GET_CAST: {
-            console.log('get cast')
             return { 
                 ...state,
-                castList: action.castingData,
+                castList: action.castData,
                 showDetail: true
             }
         }
-
-        case types.TOGGLE_DETAIL: {
-            return {
-                ...state,
-                showDetail: false
-            }
-        }
-
+        
         default: 
             return state;
     }
