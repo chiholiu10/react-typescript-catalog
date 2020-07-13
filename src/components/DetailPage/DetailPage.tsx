@@ -5,8 +5,6 @@ import ReactMarkdown from "react-markdown";
 
 interface StateToProps {
     cast: any;
-    summary: any;
-    pageSecured: boolean;
 }
 
 const Result: React.FC<StateToProps> = ({ cast }) => {
@@ -32,7 +30,7 @@ const Result: React.FC<StateToProps> = ({ cast }) => {
 }
 
 const mapStateToProps = (state: any) => {
-    console.log(state.catalogData.showDetail)
+    console.log(state)
     return {
         cast: state.catalogData.castList || [],
         summary: state.catalogData.catalogInfo.data || [],
