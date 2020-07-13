@@ -9,7 +9,7 @@ export default function App() {
     <div className="App">
       <Switch>
         <Route exact path="/" render={() => <MainPage />} />
-        <Route path="/DetailPage" render={() => <DetailPage />} />}
+        <Route path="/DetailPage" render={() => <DetailPage />} />
       </Switch>
     </div>
   );
