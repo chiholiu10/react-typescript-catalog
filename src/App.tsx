@@ -1,13 +1,16 @@
 import * as React from "react";
-import Search from './components/Search/SearchInput';
-import Result from './components/Search/SearchResult';
+import { Route, Switch } from "react-router-dom";
+import MainPage from './components/MainPage/MainPage';
+import DetailPage from './components/DetailPage/DetailPage';
 import "./styles.css";
 
 export default function App() {
   return (
     <div className="App">
-      <Search/>
-      <Result/>
+      <Switch>
+        <Route exact path="/" render={() => <MainPage />} />
+        <Route path="/DetailPage" render={() => <DetailPage />} />}
+      </Switch>
     </div>
   );
 }
