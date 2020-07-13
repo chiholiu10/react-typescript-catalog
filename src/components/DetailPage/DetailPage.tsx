@@ -5,8 +5,6 @@ import ReactMarkdown from "react-markdown";
 
 interface StateToProps {
     cast: any;
-    summary: any;
-    pageSecured: boolean;
 }
 
 const Result: React.FC<StateToProps> = ({ cast }) => {
