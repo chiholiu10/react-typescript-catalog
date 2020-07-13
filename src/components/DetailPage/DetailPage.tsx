@@ -30,7 +30,7 @@ const Result: React.FC<StateToProps> = ({ cast }) => {
 }
 
 const mapStateToProps = (state: any) => {
-    console.log(state.catalogData.showDetail)
+    console.log(state)
     return {
         cast: state.catalogData.castList || [],
         summary: state.catalogData.catalogInfo.data || [],
