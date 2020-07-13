@@ -1,7 +1,7 @@
 export const types = {
     GET_DATA: 'GET_DATA',
     GET_CAST: 'GET_CAST',
-    TOGGLE_DETAIL: 'TOGGLE_DETAIL'
+    EMPTY_DETAIL: 'EMPTY_DETAIL'
 }
 
 export const getData = (data: object) => {
@@ -11,7 +11,7 @@ export const getData = (data: object) => {
     }
 }
 
-export const getCast = (castingData: object) => {
+export const getCast = (castingData: any) => {
     return {
         type: types.GET_CAST,
         castingData
@@ -19,9 +19,9 @@ export const getCast = (castingData: object) => {
 }
 
 
-export const toggleDetail = () => {
+export const emptyDetail = () => {
     return {
-        type: types.TOGGLE_DETAIL
+        type: types.EMPTY_DETAIL
     }
 }
 
