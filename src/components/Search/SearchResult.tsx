@@ -5,19 +5,17 @@ import ReactMarkdown from "react-markdown";
 import axios from 'axios';
 import { getCast } from '../../actions/index';
 
-import {
-    Link
-  } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 interface StateToProps {
     info: any;
 }
 
 const Result: React.FC<StateToProps> = ({ info }) => {
+
     const dispatch = useDispatch();
 
     const getId = (id: number) => {
-        console.log(id)
         let url = `http://api.tvmaze.com/shows/${id}/cast`;
         passCastingAPI(url);
     }
@@ -25,7 +23,11 @@ const Result: React.FC<StateToProps> = ({ info }) => {
     const passCastingAPI = (url: string) => {
         axios(url)
             .then(response => {
+                console.log('axios')
                 dispatch(getCast(response.data))
+            })
+            .catch(error => {
+                console.log(error)
             })
     }
     return (
@@ -60,7 +62,6 @@ const Result: React.FC<StateToProps> = ({ info }) => {
 }
 
 const mapStateToProps = (state: any) => {
-    console.log(state.catalogData.catalogData)
     return {
         info: state.catalogData.catalogInfo.data || [],
     }
