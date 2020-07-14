@@ -36,6 +36,7 @@ export const SearchInput : React.FC = () => {
                 <input className="form-input-field disable-outline display-inline"
                     ref={node => (input = node)}
                     placeholder="Search catalog"
+                    aria-label="search-input" 
                 />
                 <button type="submit" className="btn btn-grey white-color display-inline">
                     Search
@@ -44,5 +45,3 @@ export const SearchInput : React.FC = () => {
         </div>
     )
 }
-
-export default SearchInput;
