@@ -3,7 +3,10 @@ import { connect } from 'react-redux';
 import { useDispatch } from "react-redux";
 import ReactMarkdown from "react-markdown";
 import axios from 'axios';
-import { getCast } from '../../actions/index';
+import { 
+    getCast, 
+    getIndex 
+} from '../../actions/index';
 
 import { Link } from "react-router-dom";
 
@@ -11,20 +14,21 @@ interface StateToProps {
     info: any;
 }
 
-const Result: React.FC<StateToProps> = ({ info }) => {
-
+const SearchResult: React.FC<StateToProps> = ({ info }) => {
     const dispatch = useDispatch();
 
-    const getId = (id: number) => {
+    const getId = (id: number, index: number) => {
         let url = `http://api.tvmaze.com/shows/${id}/cast`;
+        dispatch(getIndex(index));
         passCastingAPI(url);
     }
 
     const passCastingAPI = (url: string) => {
         axios(url)
             .then(response => {
-                console.log('axios')
+           
                 dispatch(getCast(response.data))
+                console.log('axios')
             })
             .catch(error => {
                 console.log(error)
@@ -49,7 +53,7 @@ const Result: React.FC<StateToProps> = ({ info }) => {
 
                         <Link
                             to={`/DetailPage/${show.show.id}`}
-                            onClick={() => getId(show.show.id)}
+                            onClick={() => getId(show.show.id, index)}
                             >
                             <div>See details...</div>
                         </Link>
@@ -67,4 +71,4 @@ const mapStateToProps = (state: any) => {
     }
 }
 
-export default connect(mapStateToProps)(Result);
+export default connect(mapStateToProps)(SearchResult);
