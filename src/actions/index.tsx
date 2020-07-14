@@ -1,5 +1,6 @@
 export const types = {
     GET_DATA: 'GET_DATA',
+    GET_INDEX: 'GET_INDEX',
     GET_CAST: 'GET_CAST',
     EMPTY_DETAIL: 'EMPTY_DETAIL'
 }
@@ -11,6 +12,13 @@ export const getData = (data: object) => {
     }
 }
 
+export const getIndex = (index: number) => {
+    return {
+        type: types.GET_INDEX,
+        index
+    }
+}
+
 export const getCast = (castingData: any) => {
     return {
         type: types.GET_CAST,
@@ -18,10 +26,10 @@ export const getCast = (castingData: any) => {
     }
 }
 
-
-export const emptyDetail = () => {
+export const emptyDetail = (getNull: any) => {
     return {
-        type: types.EMPTY_DETAIL
+        type: types.EMPTY_DETAIL,
+        getNull
     }
 }
 
