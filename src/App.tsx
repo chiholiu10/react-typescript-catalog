@@ -1,14 +1,14 @@
 import * as React from "react";
 import { Route, Switch } from "react-router-dom";
-import MainPage from './components/MainPage/MainPage';
+import CatalogPage from './components/CatalogPage/CatalogPage';
 import DetailPage from './components/DetailPage/DetailPage';
-import "./styles.css";
+import "./styles.scss";
 
 export default function App() {
   return (
     <div className="App">
       <Switch>
-        <Route exact path="/" render={() => <MainPage />} />
+        <Route exact path="/" render={() => <CatalogPage />} />
         <Route path="/DetailPage" render={() => <DetailPage />} />
       </Switch>
     </div>
