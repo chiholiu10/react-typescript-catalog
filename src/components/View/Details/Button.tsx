@@ -8,7 +8,7 @@ export const Button: React.FC = () => {
     const dispatch = useDispatch();
 
     function handleClick() {
-        dispatch(emptyDetail(null))
+        dispatch(emptyDetail())
         history.goBack();
     }
     

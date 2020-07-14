@@ -26,10 +26,9 @@ export const getCast = (castingData: any) => {
     }
 }
 
-export const emptyDetail = (getNull: any) => {
+export const emptyDetail = () => {
     return {
-        type: types.EMPTY_DETAIL,
-        getNull
+        type: types.EMPTY_DETAIL
     }
 }
 
