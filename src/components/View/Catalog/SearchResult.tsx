@@ -5,13 +5,18 @@ import ReactMarkdown from "react-markdown";
 import axios from 'axios';
 import { getCast, getIndex } from '../../../actions/index';
 import { Link } from "react-router-dom";
+import styled from 'styled-components';
 
 interface StateToProps {
     info: any;
 }
 
-const SearchResult: React.FC<StateToProps> = ({ info }) => {
+export const SearchResult: React.FC<StateToProps> = ({ info }) => {
     const dispatch = useDispatch();
+
+    const Image = styled.img`
+        width: 80%;
+    `;
 
     const getId = (id: number, index: number) => {
         let url = `http://api.tvmaze.com/shows/${id}/cast`;
@@ -22,7 +27,6 @@ const SearchResult: React.FC<StateToProps> = ({ info }) => {
     const passCastingAPI = (url: string) => {
         axios(url)
             .then(response => {
-           
                 dispatch(getCast(response.data))
             })
             .catch(error => {
@@ -38,8 +42,8 @@ const SearchResult: React.FC<StateToProps> = ({ info }) => {
 
                         <div className="flex-item-left">
                             { show.show.image !== null ? 
-                            <img src={show.show.image.original} alt={show.show.name} className="image-size"/> : 
-                            <img src="https://i.ibb.co/1LH6TZb/fallback-image.png" alt={show.show.name} className="image-size"/>}
+                            <Image src={show.show.image.original} alt={show.show.name}/> : 
+                            <Image src="https://i.ibb.co/1LH6TZb/fallback-image.png" alt={show.show.name}/>}
                         </div>
 
                         <div className="flex-item-right">
