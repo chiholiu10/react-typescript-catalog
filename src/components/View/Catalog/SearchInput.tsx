@@ -1,8 +1,8 @@
-import React from "react";
-import axios from "axios";
-import { useDispatch } from "react-redux";
-import { getData } from "../../../actions/index";
-import styled from "styled-components";
+import React from 'react';
+import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { getData } from '../../../actions/index';
+import styled from 'styled-components';
 
 export const SearchInput : React.FC = () => {
     const dispatch = useDispatch();
@@ -39,9 +39,9 @@ export const SearchInput : React.FC = () => {
     }
 
     return (
-        <div className="container">
+        <div className='container'>
             <h1>Keyword</h1>
-            <Form className="form" 
+            <Form className='form' 
                 onSubmit={e => {
                 e.preventDefault()
                 if(!input.value.trim()) return;
@@ -49,12 +49,12 @@ export const SearchInput : React.FC = () => {
                 getInputValue(input.value);
             }}>
 
-                <Input className="form-input-field disable-outline display-inline"
+                <Input className='form-input-field disable-outline display-inline'
                     ref={node => (input = node)}
-                    placeholder="Search catalog"
-                    aria-label="search-input" 
+                    placeholder='Search catalog'
+                    aria-label='search-input' 
                 />
-                <Button type="submit" className="btn btn-grey white-color display-inline">
+                <Button type='submit' className='btn btn-grey white-color display-inline'>
                     Search
                 </Button>
             </Form>
