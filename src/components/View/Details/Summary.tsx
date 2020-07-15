@@ -1,6 +1,6 @@
-import React from "react";
-import { connect } from "react-redux";
-import ReactMarkdown from "react-markdown";
+import React from 'react';
+import { connect } from 'react-redux';
+import ReactMarkdown from 'react-markdown';
 
 interface StateToProps {
     summary: any;
@@ -14,7 +14,7 @@ const Summary: React.FC<StateToProps> = ({ summary, currentIndex }) => {
     
     return (
         <div>
-            <div className="flex-item-right">
+            <div className='flex-item-right'>
                 <h1><ReactMarkdown source={ summary[currentIndex].show.name }/></h1>
                 <h1>Summary</h1>
                 <div dangerouslySetInnerHTML={ createMarkup() } />

@@ -1,17 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { useDispatch } from "react-redux";
-import ReactMarkdown from "react-markdown";
+import { useDispatch } from 'react-redux';
+import ReactMarkdown from 'react-markdown';
 import axios from 'axios';
 import { getCast, getIndex } from '../../../actions/index';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 interface StateToProps {
     info: any;
 }
 
-const SearchResult: React.FC<StateToProps> = ({ info }) => {
+export const SearchResult: React.FC<StateToProps> = ({ info }) => {
     const dispatch = useDispatch();
+
+    const Image = styled.img`
+        width: 80%;
+    `;
 
     const getId = (id: number, index: number) => {
         let url = `http://api.tvmaze.com/shows/${id}/cast`;
@@ -22,7 +27,6 @@ const SearchResult: React.FC<StateToProps> = ({ info }) => {
     const passCastingAPI = (url: string) => {
         axios(url)
             .then(response => {
-           
                 dispatch(getCast(response.data))
             })
             .catch(error => {
@@ -34,28 +38,28 @@ const SearchResult: React.FC<StateToProps> = ({ info }) => {
             {info.map((show: any, index: number) => {
                 console.log(show.show.image)
                 return (
-                    <div key={show.show.id} className="flex-container container">
+                    <div key={show.show.id} className='flex-container container'>
 
-                        <div className="flex-item-left">
+                        <div className='flex-item-left'>
                             { show.show.image !== null ? 
-                            <img src={show.show.image.original} alt={show.show.name} className="image-size"/> : 
-                            <img src="https://i.ibb.co/1LH6TZb/fallback-image.png" alt={show.show.name} className="image-size"/>}
+                            <Image src={show.show.image.original} alt={show.show.name}/> : 
+                            <Image src='https://i.ibb.co/1LH6TZb/fallback-image.png' alt={show.show.name}/>}
                         </div>
 
-                        <div className="flex-item-right">
-                            <div className="title-container">
-                                <h1 className="display-inline font-size">Title:</h1>
+                        <div className='flex-item-right'>
+                            <div className='title-container'>
+                                <h1 className='display-inline font-size'>Title:</h1>
 
-                                <div className="display-inline font-size">
+                                <div className='display-inline font-size'>
                                     <ReactMarkdown source={show.show.name}/>
                                 </div>
                             </div>
 
-                            <div className="genre-container">
-                                <h1 className="display-inline font-size">Genre:</h1>
+                            <div className='genre-container'>
+                                <h1 className='display-inline font-size'>Genre:</h1>
                                 {show.show.genres.map((showGenre: string, index: number) => {
                                     return (
-                                        <div key={index} className="display-inline font-size">
+                                        <div key={index} className='display-inline font-size'>
                                             <ReactMarkdown source={showGenre}/>
                                         </div>
                                     )
@@ -63,11 +67,11 @@ const SearchResult: React.FC<StateToProps> = ({ info }) => {
                             </div>
 
                             <Link 
-                                className="button-link"
+                                className='button-link'
                                 to={`/DetailPage/${show.show.id}`}
                                 onClick={() => getId(show.show.id, index)}
                             >
-                                <div className="btn btn-grey white-color">See details...</div>
+                                <div className='btn btn-grey white-color'>See details...</div>
                             </Link>
                         </div>
                     </div>
