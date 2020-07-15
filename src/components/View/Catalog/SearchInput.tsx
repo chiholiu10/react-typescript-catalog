@@ -1,11 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import { useDispatch } from "react-redux";
-import { getData } from '../../actions/index';
+import { getData } from '../../../actions/index';;
 
-interface Props {}
-
-const SearchInput : React.FC<Props> = () => {
+export const SearchInput : React.FC = () => {
     const dispatch = useDispatch();
     let input: any;
 
@@ -25,23 +23,25 @@ const SearchInput : React.FC<Props> = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={e => {
+        <div className="container">
+            <h1>Keyword</h1>
+            <form className="form display-inline-flex" 
+                onSubmit={e => {
                 e.preventDefault()
                 if(!input.value.trim()) return;
 
                 getInputValue(input.value);
             }}>
-                <input
+
+                <input className="form-input-field disable-outline display-inline"
                     ref={node => (input = node)}
                     placeholder="Search catalog"
+                    aria-label="search-input" 
                 />
-                <button type="submit">
+                <button type="submit" className="btn btn-grey white-color display-inline">
                     Search
                 </button>
             </form>
         </div>
     )
 }
-
-export default SearchInput;
