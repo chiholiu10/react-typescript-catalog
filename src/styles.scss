@@ -1,8 +1,12 @@
-// color pallets
+// colors
 $black: #000;
 $white: #fff;
 $red: #e50914;
 $grey: #303030;
+
+// breakpoints
+$mobile: 767px;
+$desktop: 768px;
 
 body, 
 html {
@@ -14,14 +18,10 @@ html {
   margin: 0;
   line-height: 1.5;
   .App {
-    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 16px;
     line-height: 24px;
     padding: 20px;
-    .display-inline-flex {
-      display: inline-flex;
-      width: 100%;
-    }
     .display-block {
       display: block;
     }
@@ -34,24 +34,14 @@ html {
         margin-right: 10px;
       }
     }
-    .form {
-      &-input-field {
-        @media screen and (max-width: 767px) {
-          width: 39%;
-        }
-        width: 65%;
+    .form-input-field {
+      @media screen and (max-width: $mobile) {
+        width: 39%;
       }
-      &-input-field,
-      .btn {
-        padding: 10px 15px;
-        font-size: 18px;
-      }
-    }
-    .image-size {
-      width: 80%;
+      width: 65%;
     }
     .flex-container {
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: $desktop) {
         display: flex;
       }
       width: 100%;
@@ -79,7 +69,7 @@ html {
       margin-left: auto;
       margin-right: auto;
       padding: 20px 0;
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: $desktop) {
         width: 800px;
         padding: 70px 20px; 
       }
@@ -100,18 +90,14 @@ html {
       &:active {
         outline: none;
       }
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: $desktop) {
         &:hover {
           cursor: pointer;
         }
       }
       &-detail-page {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
         width: 350px;
-        font-size: 16px;
-        @media screen and (max-width: 767px) {
+        @media screen and (max-width: $mobile) {
           width: 100%;
           max-width: 350px;
         }
@@ -138,6 +124,11 @@ html {
       p {
         margin: 0;
         padding: 5px 0;
+      }
+    }
+    @media screen and (max-width: $mobile) {
+      a:hover {
+        cursor: default;
       }
     }
   }
