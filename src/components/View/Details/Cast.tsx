@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ReactMarkdown from "react-markdown";
+import styled from 'styled-components';
 
 interface StateToProps {
     cast: any;
@@ -9,12 +10,16 @@ interface StateToProps {
 }
 
 export const Cast: React.FC<StateToProps> = ({ cast, summary, currentIndex }) => {
+    const Image = styled.img`
+        width: 80%;
+    `;
+    
     return (
         <div>
             <div className="flex-item-left">
                 {summary[currentIndex].show.image !== null ? 
-                    < img src={summary[currentIndex].show.image.medium} alt={summary[currentIndex].show.name} className="image-size"/> :
-                    <img src="https://i.ibb.co/1LH6TZb/fallback-image.png" alt={summary[currentIndex].show.name} className="image-size"/>
+                    <Image src={summary[currentIndex].show.image.medium} alt={summary[currentIndex].show.name}/> :
+                    <Image src="https://i.ibb.co/1LH6TZb/fallback-image.png" alt={summary[currentIndex].show.name}/>
                 }
                 <h1>Cast</h1>
 

@@ -2,10 +2,18 @@ import React from 'react';
 import history from "../../../history";
 import { emptyDetail } from '../../../actions/index';
 import { useDispatch } from "react-redux";
-
+import styled from 'styled-components';
 
 export const Button: React.FC = () => {
     const dispatch = useDispatch();
+
+    const Button = styled.button`
+        font-size: 16px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        color: white;
+    `;
 
     function handleClick() {
         dispatch(emptyDetail())
@@ -16,7 +24,7 @@ export const Button: React.FC = () => {
         <div>
                 <div>
                     <div className="flex-container container">
-                        <button onClick={handleClick} className="btn btn-grey white-color btn-detail-page">Back to catalog</button>
+                        <Button onClick={handleClick} data-testid="button-test" className="btn btn-grey btn-detail-page">Back to catalog</Button>
                     </div>
                 </div>
         </div>
