@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import history from "../../history";
+import history from '../../history';
 import Cast from '../View/Details/Cast';
 import Summary from '../View/Details/Summary';
 import Button from '../View/Details/Button';
@@ -21,7 +21,7 @@ const DetailPage: React.FC<StateToProps> = ({ cast, summary }) => {
         <div>
             {!contentCheck && ( 
             <div>
-                <div className="flex-container container">
+                <div className='flex-container container'>
                     <Cast />
                     <Summary/>
                 </div> 
